@@ -1,3 +1,12 @@
-/**
- * Created by adortbud on 9/20/2016.
- */
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+
+@Component({
+  templateUrl: 'build/pages/schedule/schedule.html'
+})
+
+export class SchedulePage {
+  constructor(public navCtrl: NavController) {
+
+  }
+}
