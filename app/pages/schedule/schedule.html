@@ -1,5 +1,8 @@
 <ion-header>
   <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
       Schedule
     </ion-title>
@@ -7,4 +10,24 @@
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <button ion-item (click)="displayWeek(1)">
+      Week 1
+    </button>
+    <button ion-item (click)="displayWeek(2)">
+      Week 2
+    </button>
+    <button ion-item (click)="displayWeek(3)">
+      Week 3
+    </button>
+    <button ion-item (click)="displayWeek(4)">
+      Week 4 (9/24/16)
+    </button>
+    <button ion-item (click)="displayWeek(5)">
+      Week 5
+    </button>
+    <button ion-item (click)="displayWeek(6)">
+      Week 6
+    </button>
+  </ion-list>
 </ion-content>

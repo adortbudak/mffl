@@ -2,15 +2,11 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
-  templateUrl: 'build/pages/schedule/schedule.html'
+  templateUrl: 'build/pages/settings/settings.html'
 })
 
-export class SchedulePage {
+export class SettingsPage {
   constructor(public navCtrl: NavController) {
 
-  }
-
-  displayWeek(weekNo){
-    alert(weekNo);
   }
 }
