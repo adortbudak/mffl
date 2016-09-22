@@ -3,6 +3,7 @@ import {NavController, NavParams, Platform, DateTime} from 'ionic-angular';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import {MapService} from "../../services/maps.service";
+import {WeatherService} from "../../services/weather.service";
 
 
 
@@ -10,7 +11,7 @@ declare var google;
 
 @Component({
   templateUrl: 'build/pages/game/game.html',
-  providers: [MapService]
+  providers: [MapService,WeatherService]
 })
 
 export class GamePage {
@@ -19,47 +20,32 @@ export class GamePage {
   address:any;
   addressData;
   error:any;
+  weatherData:any;
+  public lat:any;
+  public lng:any;
 
   constructor(public navCtrl: NavController, private navParams: NavParams,
-                private mapService:MapService,private platform: Platform) {
+                private mapService:MapService,private platform: Platform,
+                private weatherService: WeatherService) {
       this.weekNo = navParams.get('weekNo');
       this.address = navParams.get('address');
+      this.weatherData = [];
   }
 
   ionViewLoaded(){
     this.getCoords();
+
+
   }
 
-  initializeMap() {
-
-    this.platform.ready().then(() => {
-
-      let locationOptions = {timeout: 10000, enableHighAccuracy: true};
-
-      navigator.geolocation.getCurrentPosition(
-
-        (position) => {
-
-          let options = {
-            center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-            zoom: 16,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-          }
-
-          this.map = new google.maps.Map(document.getElementById("map"), options);
-        },
-
-        (error) => {
-          console.log(error);
-        }, locationOptions
-      );
-    });
-  }
 
   loadMap(){
     let location = this.addressData[0].geometry.location;
 
     let latLng = new google.maps.LatLng(location.lat, location.lng);
+
+    this.lat = location.lat;
+    this.lng = location.lng;
 
     let mapOptions = {
       center: latLng,
@@ -91,6 +77,9 @@ export class GamePage {
             data => {
                       this.addressData = data["results"];
                       this.loadMap();
+                      console.log(this.lat,this.lng);
+                      this.weatherService.load(this.lat,this.lng)
+                      .subscribe(weatherRes => {this.weatherData = weatherRes});
                     },
             error => this.error = "Address: " + this.address + " is invalid",
             () => console.log('Completed!')
