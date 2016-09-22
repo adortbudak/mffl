@@ -67,6 +67,7 @@ export class GamePage {
       map: this.map,
       animation: google.maps.Animation.DROP,
       position: this.map.getCenter()
+
     });
   }
 
@@ -79,7 +80,11 @@ export class GamePage {
                       this.loadMap();
                       console.log(this.lat,this.lng);
                       this.weatherService.load(this.lat,this.lng)
-                      .subscribe(weatherRes => {this.weatherData = weatherRes});
+                      .subscribe(weatherRes =>
+                        {this.weatherData = weatherRes;
+                          console.log(this.weatherData.currently);}
+                      );
+
                     },
             error => this.error = "Address: " + this.address + " is invalid",
             () => console.log('Completed!')

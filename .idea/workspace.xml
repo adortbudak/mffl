@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11ec2c63-430d-4c49-a629-217b268890a7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/services/weather.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/game/game.html" afterPath="$PROJECT_DIR$/app/pages/game/game.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/game/game.ts" afterPath="$PROJECT_DIR$/app/pages/game/game.ts" />
     </list>
     <ignored path="mffl.iws" />
@@ -31,11 +29,21 @@
       <file leaf-file-name="game.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/pages/game/game.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+            <state relative-caret-position="456">
+              <caret line="84" column="60" selection-start-line="84" selection-start-column="60" selection-end-line="84" selection-end-column="60" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ionic.config.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ionic.config.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -50,19 +58,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/app.ts">
+      <file leaf-file-name="config.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-                <marker date="1474402017422" expanded="true" signature="343:657" ph="..." />
-                <marker date="1474402017422" expanded="true" signature="365:427" ph="..." />
-                <marker date="1474402017422" expanded="true" signature="449:639" ph="..." />
-                <marker date="1474402017422" expanded="true" signature="470:616" ph="..." />
-                <marker date="1474402017422" expanded="true" signature="546:594" ph="..." />
-              </folding>
+            <state relative-caret-position="524">
+              <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -131,16 +132,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/pages/game/game.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -182,6 +173,7 @@
         <option value="$PROJECT_DIR$/app/services/maps.service.ts" />
         <option value="$PROJECT_DIR$/app/pages/game/game.html" />
         <option value="$PROJECT_DIR$/app/services/weather.service.ts" />
+        <option value="$PROJECT_DIR$/ionic.config.json" />
         <option value="$PROJECT_DIR$/app/pages/game/game.ts" />
       </list>
     </option>
@@ -429,12 +421,12 @@
       <workItem from="1474472030470" duration="9554000" />
       <workItem from="1474511107340" duration="1105000" />
       <workItem from="1474547035651" duration="18370000" />
-      <workItem from="1474569622248" duration="3108000" />
+      <workItem from="1474569622248" duration="4882000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44830000" />
+    <option name="totallyTimeSpent" value="46604000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="73" y="3" width="1749" height="1121" extended-state="0" />
@@ -649,13 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ionic.config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tsconfig.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -676,14 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -709,7 +686,7 @@
         <state relative-caret-position="799">
           <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding>
-            <element signature="e#0#51#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="false" />
             <marker date="1474402017422" expanded="true" signature="343:657" ph="..." />
             <marker date="1474402017422" expanded="true" signature="365:427" ph="..." />
             <marker date="1474402017422" expanded="true" signature="449:639" ph="..." />
@@ -777,6 +754,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ionic.config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/services/weather.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -789,8 +782,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/game/game.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        <state relative-caret-position="456">
+          <caret line="84" column="60" selection-start-line="84" selection-start-column="60" selection-end-line="84" selection-end-column="60" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
