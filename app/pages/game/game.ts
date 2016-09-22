@@ -1,5 +1,8 @@
 import {Component, ViewChild, ElementRef,NgZone} from '@angular/core';
 import {NavController, NavParams, Platform} from 'ionic-angular';
+import {Http} from '@angular/http';
+import 'rxjs/add/operator/map';
+
 import {GoogleMap, GoogleMapsEvent, GoogleMapsLatLng} from 'ionic-native';
 
 
@@ -13,9 +16,10 @@ export class GamePage {
   weekNo: any;
   map: any;
   address:any;
-  constructor(public navCtrl: NavController, private navParams: NavParams) {
+  constructor(public navCtrl: NavController, private navParams: NavParams, private http:Http) {
       this.weekNo = navParams.get('weekNo');
       this.address = navParams.get('address');
+      this.getCoords(this.address);
   }
 
   ionViewLoaded(){
@@ -24,7 +28,8 @@ export class GamePage {
 
   loadMap(){
 
-    let latLng = new google.maps.LatLng(-34.9290, 138.6010);
+
+    let latLng = new google.maps.LatLng(43.095917943, -88.0745098);
 
     let mapOptions = {
       center: latLng,
@@ -34,5 +39,13 @@ export class GamePage {
 
     this.map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
+  }
+
+  getCoords(address){
+
+    var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURI(address) + '&key=AIzaSyA2jzmSqTWeTJLmx3HAi1eiXp24XNV8DHo';
+    alert(url);
+    var response = this.http.get(url).map(res => res.json());
+    return response;
   }
 }
