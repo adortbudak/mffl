@@ -1,9 +1,8 @@
-import {Component, ViewChild, ElementRef,NgZone} from '@angular/core';
-import {NavController, NavParams, Platform} from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, NavParams} from 'ionic-angular';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import {GoogleMap, GoogleMapsEvent, GoogleMapsLatLng} from 'ionic-native';
 
 
 declare var google;
@@ -44,7 +43,6 @@ export class GamePage {
   getCoords(address){
 
     var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURI(address) + '&key=AIzaSyA2jzmSqTWeTJLmx3HAi1eiXp24XNV8DHo';
-    alert(url);
     var response = this.http.get(url).map(res => res.json());
     return response;
   }
