@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, Platform} from 'ionic-angular';
+import {NavController, NavParams, Platform, DateTime} from 'ionic-angular';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import {MapService} from "../../services/maps.service";
@@ -65,10 +65,23 @@ export class GamePage {
       center: latLng,
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
+    };
 
-    this.map = new google.maps.Map(document.querySelector('#map'), mapOptions);
+    var googleMap = new google.maps.Map(document.querySelector('#map'), mapOptions)
 
+    this.map = googleMap;
+
+    this.addPin();
+
+
+  }
+
+  addPin(){
+    let marker = new google.maps.Marker({
+      map: this.map,
+      animation: google.maps.Animation.DROP,
+      position: this.map.getCenter()
+    });
   }
 
   getCoords()
