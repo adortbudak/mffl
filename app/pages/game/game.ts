@@ -75,8 +75,9 @@ export class GamePage {
             data => {
                       this.addressData = data["results"];
                       this.loadMap();
-                      console.log(this.lat,this.lng);
-                      this.weatherService.load(this.lat,this.lng)
+                      var unixTime = new Date(this.game.date + " " + this.game.time).getTime() / 1000;
+                      console.log("UnixTime: ",unixTime);
+                      this.weatherService.load(this.lat,this.lng,unixTime)
                       .subscribe(weatherRes =>
                         {
                           this.weatherData = this.formatWeather(weatherRes);

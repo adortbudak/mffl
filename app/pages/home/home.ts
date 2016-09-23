@@ -9,7 +9,7 @@ export class HomePage {
   scheduleData:any
   constructor(public navCtrl: NavController) {
     this.scheduleData = [{
-      "date":"09/24/16",
+      "date":"09/24/2016",
       "time":"09:00 AM",
       "location": "W142 N8101 Merrimac Dr, Menomonee Falls, WI 53051",
       "hometeam": "Indians-Maroon",

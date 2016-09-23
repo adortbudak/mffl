@@ -12,8 +12,8 @@ export class WeatherService {
     this.http = http;
   }
 
-  load(lat:String, lng:String){
-    return this.http.get('https://api.darksky.net/forecast/'+this.key+'/' + lat + ','+ lng)
+  load(lat:String, lng:String,date){
+    return this.http.get('https://api.darksky.net/forecast/'+this.key+'/' + lat + ','+ lng + ',' + date)
       .map(res => res.json());
   }
 }

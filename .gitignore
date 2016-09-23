@@ -8,4 +8,5 @@ plugins/
 *.swp
 .DS_Store
 Thumbs.db
-.idea
+.idea/
+.idea/workspace.xml
