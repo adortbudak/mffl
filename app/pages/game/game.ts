@@ -80,6 +80,7 @@ export class GamePage {
                       this.weatherService.load(this.lat,this.lng,unixTime)
                       .subscribe(weatherRes =>
                         {
+                          console.log(weatherRes);
                           this.weatherData = this.formatWeather(weatherRes);
                           this.weatherClass = 'weatherContent-partly-cloudy-day';
                           console.log(this.weatherData);
@@ -95,9 +96,9 @@ export class GamePage {
 
   formatWeather(data)
   {
-    let tempData: any = data.currently;
-    tempData.tomorrow = data.daily.data[1];
-    tempData.tomorrow.summary = tempData.tomorrow.summary.toLowerCase().substr(0,tempData.tomorrow.summary.length-1);
+    let tempData: any = data.daily.data[0];
+    console.log(tempData);
+    tempData.summary = tempData.summary.toLowerCase().substr(0,tempData.summary.length-1);
 
 
     return tempData;
