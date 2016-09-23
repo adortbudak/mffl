@@ -16,6 +16,8 @@ export class MapService{
     var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURI(address)
       + '&key=AIzaSyA2jzmSqTWeTJLmx3HAi1eiXp24XNV8DHo';
 
+    console.log(url);
+
     return this.http
       .get(url)
       .map((res:Response) => res.json());

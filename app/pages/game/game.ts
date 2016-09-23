@@ -15,7 +15,7 @@ declare var google;
 })
 
 export class GamePage {
-  weekNo: any;
+  game: any;
   map: any;
   address:any;
   addressData;
@@ -23,18 +23,16 @@ export class GamePage {
   weatherData:any;
   public lat:any;
   public lng:any;
+  weatherClass: any;
 
   constructor(public navCtrl: NavController, private navParams: NavParams,
                 private mapService:MapService,private platform: Platform,
                 private weatherService: WeatherService) {
-      this.weekNo = navParams.get('weekNo');
-      this.address = navParams.get('address');
-      this.weatherData = [];
+      this.game = navParams.get('game');
+      this.getCoords();
   }
 
   ionViewLoaded(){
-    this.getCoords();
-
 
   }
 
@@ -67,13 +65,12 @@ export class GamePage {
       map: this.map,
       animation: google.maps.Animation.DROP,
       position: this.map.getCenter()
-
     });
   }
 
   getCoords()
   {
-        this.mapService.getLocationByAddress(this.address)
+        this.mapService.getLocationByAddress(this.game.location)
            .subscribe(
             data => {
                       this.addressData = data["results"];
@@ -81,14 +78,28 @@ export class GamePage {
                       console.log(this.lat,this.lng);
                       this.weatherService.load(this.lat,this.lng)
                       .subscribe(weatherRes =>
-                        {this.weatherData = weatherRes;
-                          console.log(this.weatherData.currently);}
+                        {
+                          this.weatherData = this.formatWeather(weatherRes);
+                          this.weatherClass = 'weatherContent-partly-cloudy-day';
+                          console.log(this.weatherData);
+                        }
+
                       );
 
                     },
             error => this.error = "Address: " + this.address + " is invalid",
             () => console.log('Completed!')
           );
+  }
+
+  formatWeather(data)
+  {
+    let tempData: any = data.currently;
+    tempData.tomorrow = data.daily.data[1];
+    tempData.tomorrow.summary = tempData.tomorrow.summary.toLowerCase().substr(0,tempData.tomorrow.summary.length-1);
+
+
+    return tempData;
   }
 
 }
