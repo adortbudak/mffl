@@ -4,6 +4,8 @@ import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import {MapService} from "../../services/maps.service";
 import {WeatherService} from "../../services/weather.service";
+import {MapPage} from "../map/map";
+
 
 
 
@@ -29,43 +31,11 @@ export class GamePage {
                 private mapService:MapService,private platform: Platform,
                 private weatherService: WeatherService) {
       this.game = navParams.get('game');
-      this.getCoords();
+      //this.getCoords();
   }
 
   ionViewLoaded(){
 
-  }
-
-
-  loadMap(){
-    let location = this.addressData[0].geometry.location;
-
-    let latLng = new google.maps.LatLng(location.lat, location.lng);
-
-    this.lat = location.lat;
-    this.lng = location.lng;
-
-    let mapOptions = {
-      center: latLng,
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
-    var googleMap = new google.maps.Map(document.querySelector('#map'), mapOptions)
-
-    this.map = googleMap;
-
-    this.addPin();
-
-
-  }
-
-  addPin(){
-    let marker = new google.maps.Marker({
-      map: this.map,
-      animation: google.maps.Animation.DROP,
-      position: this.map.getCenter()
-    });
   }
 
   getCoords()
@@ -74,7 +44,6 @@ export class GamePage {
            .subscribe(
             data => {
                       this.addressData = data["results"];
-                      this.loadMap();
                       var unixTime = new Date(this.game.date + " " + this.game.time).getTime() / 1000;
                       console.log("UnixTime: ",unixTime);
                       this.weatherService.load(this.lat,this.lng,unixTime)
@@ -99,9 +68,16 @@ export class GamePage {
     let tempData: any = data.daily.data[0];
     console.log(tempData);
     tempData.summary = tempData.summary.toLowerCase().substr(0,tempData.summary.length-1);
+    tempData.precipate = tempData.precipProbability.toString();
+    tempData.temp = tempData.temperatureMax.toString();
 
 
     return tempData;
+  }
+
+  getDirections(address){
+    console.log(address);
+    this.navCtrl.push(MapPage,{location: address});
   }
 
 }

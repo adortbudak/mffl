@@ -5,31 +5,41 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Game Detail
+      {{game.date}}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>{{game.awayteam}}</ion-col>
+      <ion-col>{{game.hometeam}}</ion-col>
+    </ion-row>
+  </ion-grid>
   <ion-card>
-    <ion-card-header>
-      {{game.awayteam}} | {{game.hometeam}}
-    </ion-card-header>
     <ion-card-content>
-      Address: {{game.location}}
-    </ion-card-content>
-  </ion-card>
-  <ion-card style="height: 60%">
-    <ion-card-content style="height: 100%;width: 100%">
-      <div class="item" style="height: 100%;width: 100%" id="map"></div>
+      <div>
+        {{game.location}}
+      </div>
+      <button (click)="getDirections(game.location)" favorite>
+        Get Directions
+        <ion-icon name="map"></ion-icon>
+      </button>
     </ion-card-content>
   </ion-card>
   <ion-card>
     <ion-card-header>
-      Forecast
+      Gameday Forecast
     </ion-card-header>
-    <ion-card-content *ngIf="weatherData">
+    <ion-card-content *ngIf="weatherData" favorite>
       {{weatherData.summary}}
+      <div>
+        Temperature: {{weatherData.temp}}
+      </div>
+      <div>
+        Precipitation: {{weatherData.precipate}}
+      </div>
     </ion-card-content>
   </ion-card>
   <ion-card>
