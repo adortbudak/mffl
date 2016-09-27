@@ -53,9 +53,13 @@ export class MapPage{
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    var googleMap = new google.maps.Map(document.querySelector('#map'), mapOptions)
+    var googleMap = new google.maps.Map(document.querySelector('#map'), mapOptions);
+    var directionsDisplay = new google.maps.DirectionsRenderer();
+    var directionsService = new google.maps.DirectionsService();
 
     this.map = googleMap;
+
+
 
     this.addPin();
   }
@@ -66,6 +70,14 @@ export class MapPage{
       animation: google.maps.Animation.DROP,
       position: this.map.getCenter()
     });
+
+    var infoWindow = new google.maps.InfoWindow({
+      content: this.game
+    });
+
+    google.maps.event.addListener(marker,'click',function(){
+      infoWindow.open(this.map,marker);
+    })
   }
 
 }

@@ -3,6 +3,7 @@ import {NavController, NavParams, Platform} from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import {MapService} from "../../services/maps.service";
 import {WeatherService} from "../../services/weather.service";
+import {MapPage} from "../map/map";
 
 
 
@@ -61,6 +62,10 @@ export class GamePage {
 
 
     return tempData;
+  }
+
+  getDirections(address){
+        this.navCtrl.push(MapPage,{location: address});
   }
 
 
