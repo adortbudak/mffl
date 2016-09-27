@@ -8,10 +8,26 @@
 </ion-header>
 
 <ion-content padding class="home">
-  <ion-list *ngIf="scheduleData" no-lines>
-    <ion-item *ngFor="let game of scheduleData" (click)="displayWeek(game)">
-      {{game.awayteam}} | {{game.hometeam}}
-      <ion-icon name="football" item-right=""></ion-icon>
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-list >
+      <ion-item-divider *ngFor="let game of scheduleData" class="silver">
+
+        <ion-row>
+          <ion-col width-20>
+            <div>{{game.date}}</div>
+            <div>{{game.time}}</div>
+          </ion-col>
+          <ion-col center width-50>
+              <b>{{game.vsat}}.</b> {{game.opponent}}
+          </ion-col>
+          <ion-col center width-15>
+            <div class="positive">W 17-0</div>
+          </ion-col>
+          <ion-col width-15 center>
+            <ion-icon class="center" name="american-football" (click)="displayWeek(game)"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-item-divider>
+    </ion-list>
+  </ion-grid>
 </ion-content>
