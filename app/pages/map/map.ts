@@ -54,12 +54,8 @@ export class MapPage{
     };
 
     var googleMap = new google.maps.Map(document.querySelector('#map'), mapOptions);
-    var directionsDisplay = new google.maps.DirectionsRenderer();
-    var directionsService = new google.maps.DirectionsService();
 
     this.map = googleMap;
-
-
 
     this.addPin();
   }
