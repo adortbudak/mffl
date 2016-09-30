@@ -13,11 +13,11 @@
       <ion-item-divider *ngFor="let game of scheduleData" class="silver">
         <ion-row>
           <ion-col width-20>
-            <div>{{game.date}}</div>
-            <div>{{game.time}}</div>
+            <div>{{game.gameDate}}</div>
+            <div>{{game.gameTime}}</div>
           </ion-col>
           <ion-col center width-50>
-              <b>{{game.vsat}}.</b> {{game.opponent}}
+              {{game.awayTeam}}<b>-</b> {{game.homeTeam}}
           </ion-col>
           <ion-col center width-15>
             <div class="positive">W 17-0</div>

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams} from "ionic-angular";
 import {MapService} from "../../services/maps.service";
+import {Geolocation} from 'ionic-native';
+
 
 declare var google;
 
@@ -18,10 +20,14 @@ export class MapPage{
   map: any;
   lat: any;
   lng: any;
+  curLat: any;
+  curLng: any;
+
 
   constructor(public navCtrl: NavController, private navParams: NavParams,
               private mapService:MapService){
     this.game = navParams.get('location');
+    this.getCurrentLocation();
     this.getCoords();
   }
 
@@ -37,6 +43,14 @@ export class MapPage{
         error => this.error = "Address: " + this.game + " is invalid",
         () => console.log('Completed!')
       );
+  }
+
+  getCurrentLocation()
+  {
+    Geolocation.getCurrentPosition().then(pos => {
+      this.curLat = pos.coords.latitude;
+      this.curLng = pos.coords.longitude;
+    }) ;
   }
 
   loadMap(){
@@ -58,6 +72,8 @@ export class MapPage{
     this.map = googleMap;
 
     this.addPin();
+
+    console.log(this.curLng);
   }
 
   addPin(){
